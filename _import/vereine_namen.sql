@@ -1,0 +1,16 @@
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (1, 112, 'Schachgesellschaft Eckbauer', 0, 0);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (2, 112, 'Berliner Schachgesellschaft 1827 Eckbauer', 0, 0);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (3, 121, 'Schachgruppe Zepernick', 1948, 1954);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (4, 121, 'BSG Medizin Buch', 1954, 1963);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (5, 121, 'BSG Lok Oberspree', 1963, 1994);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (6, 121, 'Schachfreunde NordOst', 1994, 0);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (7, 137, 'VSG Lichtenberger Schachfreunde', 0, 0);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (8, 137, 'BSG KWV Berlin', 0, 0);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (9, 137, 'BSG WBK Berlin', 0, 0);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (10, 137, 'SV Bau-Union Berlin e. V.', 0, 0);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (11, 138, 'BSG Medizin Lichtenberg', 1970, 1982);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (12, 138, 'BSG Medizin Marzahn', 1982, 0);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (13, 138, 'BSG Medizin Berlin', 0, 1991);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (14, 138, 'BSV Eintracht Mahlsdorf', 1994, 0);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (15, 263, 'Berlin Türk Ocagi', 1977, 1980);
+INSERT INTO `tl_vereinsregister_namen` (id, pid, name, fromDate, toDate) VALUES (16, 263, 'Türk Satrance Kulübü', 1980, 0);

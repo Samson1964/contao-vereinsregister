@@ -1,0 +1,9 @@
+INSERT INTO `tl_vereinsregister_chairman` (id, pid, name, fromDate, toDate) VALUES (1, 14, 'Erich Stallknecht', 1925, 0);
+INSERT INTO `tl_vereinsregister_chairman` (id, pid, name, fromDate, toDate) VALUES (2, 112, 'Erich Stallknecht', 1949, 0);
+INSERT INTO `tl_vereinsregister_chairman` (id, pid, name, fromDate, toDate) VALUES (3, 137, 'Harri Urban', 1970, 1987);
+INSERT INTO `tl_vereinsregister_chairman` (id, pid, name, fromDate, toDate) VALUES (4, 138, 'Alfred Miethke', 1970, 1974);
+INSERT INTO `tl_vereinsregister_chairman` (id, pid, name, fromDate, toDate) VALUES (5, 138, 'Günter Kabisch', 1974, 1977);
+INSERT INTO `tl_vereinsregister_chairman` (id, pid, name, fromDate, toDate) VALUES (6, 138, 'Klaus Rosenkranz', 1977, 1991);
+INSERT INTO `tl_vereinsregister_chairman` (id, pid, name, fromDate, toDate) VALUES (7, 138, 'Hans-Dieter Ostwald', 1994, 0);
+INSERT INTO `tl_vereinsregister_chairman` (id, pid, name, fromDate, toDate) VALUES (8, 184, 'Ulrich Fitzke', 0, 20021231);
+INSERT INTO `tl_vereinsregister_chairman` (id, pid, name, fromDate, toDate) VALUES (9, 263, 'Oguz Yelkenci', 0, 0);
