@@ -8,19 +8,36 @@ $GLOBALS["TL_LANG"]["tl_vereinsregister"]["name_legend"] = "Vereinsname";
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["name"][0] = "Name";
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["name"][1] = "Geben Sie hier den aktuellen Vereinsnamen ein.";
 
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["alias"][0] = "Alias";
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["alias"][1] = "Das Alias wird automatisch beim Speichern aus dem Vereinsnamen generiert, wenn das Feld leer ist.";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["place_legend"] = "Niederlassung";
+
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["continent"][0] = "Kontinent";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["continent"][1] = "Geben Sie hier den Kontinent ein.";
+
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["land"][0] = "Land";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["land"][1] = "Geben Sie hier das Land ein.";
+
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["region"][0] = "Region";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["region"][1] = "Geben Sie hier die Region oder das Bundesland ein.";
+
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["city"][0] = "Ort";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["city"][1] = "Geben Sie hier den Ort ein.";
 
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["time_legend"] = "Gründung und Auflösung";
 
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["timerange"][0] = "Zeitraum";
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["timerange"][1] = "Von wann bis wann war der Verein aktiv?";
 
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["foundingDate"][0] = "Gründung";
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["foundingDate"][1] = "Datum der Gründung im Format JJJJ, MM.JJJJ oder TT.MM.JJJJ";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["periodStartDate"][0] = "Beginn der Periode";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["periodStartDate"][1] = "Beginndatum des Zeitabschnitts/Eintrags im Format JJJJ, MM.JJJJ oder TT.MM.JJJJ";
 
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["resolutionDate"][0] = "Auflösung";
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["resolutionDate"][1] = "Datum der Auflösung im Format JJJJ, MM.JJJJ oder TT.MM.JJJJ";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["periodEndDate"][0] = "Ende der Periode";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["periodEndDate"][1] = "Endedatum des Zeitabschnitts/Eintrags im Format JJJJ, MM.JJJJ oder TT.MM.JJJJ";
+
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["foundingDate"][0] = "Gründungsdatum";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["foundingDate"][1] = "Datum der Gründung im Format JJJJ, MM.JJJJ oder TT.MM.JJJJ. Gilt global inkl. aller Vorgängervereine.";
+
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["resolutionDate"][0] = "Auflösungsdatum";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["resolutionDate"][1] = "Datum der Auflösung im Format JJJJ, MM.JJJJ oder TT.MM.JJJJ. Kann frei bleiben, wenn es einen Nachfolgeverein gibt.";
 
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["before_legend"] = "Vorgänger-Vereine";
 
@@ -30,6 +47,19 @@ $GLOBALS["TL_LANG"]["tl_vereinsregister"]["addBefore"][1] = "Hier können Sie ei
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["beforeClubs"][0] = "Bitte Verein(e) auswählen:";
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["beforeClubs"][1] = "Bitte wählen Sie ein oder mehrere Vereine aus.";
 
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["separation_legend"] = "Abgespaltete Vereine";
+
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["addSeparation"][0] = "Abgespaltete Vereine hinzufügen";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["addSeparation"][1] = "Abgespaltete Vereine hinzufügen";
+
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["separationClubs"] = "Vereine";
+
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["separationClub"][0] = "Verein";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["separationClub"][1] = "Name des abgespalteten Vereins";
+
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["separationDate"][0] = "Datum der Trennung";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["separationDate"][1] = "Wann spaltete sich dieser Verein ab?";
+
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["after_legend"] = "Nachfolger-Vereine";
 
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["addAfter"][0] = "Nachfolger-Vereine hinzufügen";
@@ -38,18 +68,13 @@ $GLOBALS["TL_LANG"]["tl_vereinsregister"]["addAfter"][1] = "Hier können Sie ein
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["afterClubs"][0] = "Bitte Verein(e) auswählen:";
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["afterClubs"][1] = "Bitte wählen Sie ein oder mehrere Vereine aus.";
 
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["afterCause"][0] = "Grund";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["afterCause"][1] = "Bitte wählen Sie Grund für die Nachfolge aus.";
+
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["info_legend"] = "Information";
 
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["info"][0] = "Vereinsbeschreibung";
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["info"][1] = "Geben Sie hier eine kurze Beschreibung des Vereins ein.";
-
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["place_legend"] = "Ort und Land";
-
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["city"][0] = "Ort";
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["city"][1] = "Geben Sie hier den Ort ein.";
-
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["land"][0] = "Land";
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["land"][1] = "Geben Sie hier das Land/Bundesland ein.";
 
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["image_legend"] = "Bild/Logo-Einstellungen";
 
@@ -95,29 +120,10 @@ $GLOBALS["TL_LANG"]["tl_vereinsregister"]["intern_legend"] = "Intern";
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["intern"][0] = "Bemerkungen";
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["intern"][1] = "Interne Bemerkungen";
 
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["protected_legend"] = "Zugriffsschutz";
-
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["protected"][0] = "Verein schützen";
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["protected"][1] = "Den Verein nur bestimmten Gruppen anzeigen.";
-
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["groups"][0] = "Erlaubte Mitgliedergruppen";
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["groups"][1] = "Diese Gruppen können den Verein sehen.";
-
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["expert_legend"] = "Experten-Einstellungen";
-
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["guests"][0] = "Nur Gästen anzeigen";
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["guests"][1] = "Den Verein verstecken, sobald ein Mitglied angemeldet ist.";
-
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["publish_legend"] = "Veröffentlichung";
 
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["published"][0] = "Verein veröffentlichen";
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["published"][1] = "Den Verein auf der Webseite anzeigen.";
-
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["start"][0] = "Anzeigen ab";
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["start"][1] = "Den Verein erst ab diesem Tag auf der Webseite anzeigen.";
-
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["stop"][0] = "Anzeigen bis";
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["stop"][1] = "Den Verein nur bis zu diesem Tag auf der Webseite anzeigen.";
 
 /**
  * Buttons für Operationen

@@ -27,63 +27,6 @@ class Vereinsregister
 	                    );
 
 	/**
-	 * Datumswert aus Datenbank umwandeln
-	 * @param mixed
-	 * @return mixed
-	 */
-	public static function getDate($varValue)
-	{
-		$laenge = strlen($varValue);
-		$temp = '';
-		switch($laenge)
-		{
-			case 8: // JJJJMMTT
-				$temp = substr($varValue,6,2).'.'.substr($varValue,4,2).'.'.substr($varValue,0,4);
-				break;
-			case 6: // JJJJMM
-				$temp = substr($varValue,4,2).'.'.substr($varValue,0,4);
-				break;
-			case 4: // JJJJ
-				$temp = $varValue;
-				break;
-			case 1: // wahrscheinlich 0
-				$temp = '';
-				break;
-			default: // anderer Wert
-				$temp = $varValue;
-		}
-
-		return $temp;
-	}
-
-	/**
-	 * Datumswert für Datenbank umwandeln
-	 * @param mixed
-	 * @return mixed
-	 */
-	public static function putDate($varValue)
-	{
-		$laenge = strlen(trim($varValue));
-		$temp = '';
-		switch($laenge)
-		{
-			case 10: // TT.MM.JJJJ
-				$temp = substr($varValue,6,4).substr($varValue,3,2).substr($varValue,0,2);
-				break;
-			case 7: // MM.JJJJ
-				$temp = substr($varValue,3,4).substr($varValue,0,2);
-				break;
-			case 4: // JJJJ
-				$temp = $varValue;
-				break;
-			default: // anderer Wert
-				$temp = 0;
-		}
-
-		return $temp;
-	}
-
-	/**
 	 * Datumswert JJJJMMTT / JJJJMM / JJJJ umwandeln (mit Monatsname)
 	 * @param mixed
 	 * @return mixed

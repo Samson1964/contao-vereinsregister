@@ -29,7 +29,7 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 			'keys' => array
 			(
 				'id'             => 'primary',
-				'alias'          => 'index',
+				'name'           => 'index',
 				'foundingDate'   => 'index',
 				'resolutionDate' => 'index'
 			)
@@ -42,7 +42,7 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 		'sorting' => array
 		(
 			'mode'                    => 2,
-			'fields'                  => array('alias'),
+			'fields'                  => array('name'),
 			'flag'                    => 1,
 			'panelLayout'             => 'sort;filter;search,limit'
 		),
@@ -126,17 +126,17 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 	// Palettes
 	'palettes' => array
 	(
-		'__selector__'                => array('addImage', 'protected', 'addBefore', 'addAfter'), 
-		'default'                     => '{name_legend},name,alias;{time_legend:hide},timerange,foundingDate,resolutionDate;{before_legend:hide},addBefore;{after_legend:hide},addAfter;{info_legend:hide},info;{place_legend:hide},city,land;{image_legend},addImage;{link_legend:hide},url;{intern_legend:hide},intern;{protected_legend:hide},protected;{expert_legend:hide},guests;{publish_legend},published,start,stop'
+		'__selector__'                => array('addImage', 'addBefore', 'addSeparation', 'addAfter'), 
+		'default'                     => '{name_legend},name;{place_legend:hide},continent,land,region,city;{time_legend:hide},timerange,periodStartDate,periodEndDate,foundingDate,resolutionDate;{info_legend:hide},info;{before_legend:hide},addBefore;{separation_legend:hide},addSeparation;{after_legend:hide},addAfter;{image_legend},addImage;{link_legend:hide},url;{intern_legend:hide},intern;{publish_legend},published'
 	),
 
 	// Subpalettes
 	'subpalettes' => array
 	(
 		'addImage'                    => 'singleSRC,alt,title,size,imagemargin,imageUrl,fullsize,caption,floating',
-		'protected'                   => 'groups',
 		'addBefore'                   => 'beforeClubs',
-		'addAfter'                    => 'afterClubs',
+		'addSeparation'               => 'separationClubs',
+		'addAfter'                    => 'afterClubs,afterCause',
 	), 
 	
 	// Fields
@@ -162,22 +162,54 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 			'eval'                    => array('mandatory'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(128) NOT NULL default ''"
 		),
-		'alias' => array
+		'continent' => array
 		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['alias'],
+			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['continent'],
 			'exclude'                 => true,
-			'search'                  => false,
+			'search'                  => true,
 			'sorting'                 => true,
 			'flag'                    => 1,
-			'filter'                  => false,
+			'filter'                  => true,
 			'inputType'               => 'text',
-			'eval'                    => array('rgxp'=>'alias', 'unique'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
-			'save_callback' => array
-			(
-				array('tl_vereinsregister', 'generateAlias')
-			),
-			'sql'                     => "varbinary(128) NOT NULL default ''"
-		), 
+			'eval'                    => array('mandatory'=>false, 'maxlength'=>64, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(64) NOT NULL default ''"
+		),
+		'land' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['land'],
+			'exclude'                 => true,
+			'search'                  => true,
+			'sorting'                 => true,
+			'flag'                    => 1,
+			'filter'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('mandatory'=>false, 'maxlength'=>64, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(64) NOT NULL default ''"
+		),
+		'region' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['region'],
+			'exclude'                 => true,
+			'search'                  => true,
+			'sorting'                 => true,
+			'flag'                    => 1,
+			'filter'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('mandatory'=>false, 'maxlength'=>64, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(64) NOT NULL default ''"
+		),
+		'city' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['city'],
+			'exclude'                 => true,
+			'search'                  => true,
+			'sorting'                 => true,
+			'flag'                    => 3,
+			'filter'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('mandatory'=>false, 'maxlength'=>64, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(64) NOT NULL default ''"
+		),
 		'timerange' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['timerange'],
@@ -188,6 +220,56 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 			'inputType'               => 'text',
 			'eval'                    => array('mandatory'=>false, 'maxlength'=>128, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(128) NOT NULL default ''"
+		),
+		'periodStartDate' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['periodStartDate'],
+			'exclude'                 => true,
+			'search'                  => true,
+			'sorting'                 => true,
+			'flag'                    => 12,
+			'filter'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array
+			(
+				'maxlength'           => 10,
+				'tl_class'            => 'w50 clr',
+				'rgxp'                => 'alnum'
+			),
+			'load_callback'           => array
+			(
+				array('\Samson\Helper', 'getDate')
+			),
+			'save_callback' => array
+			(
+				array('\Samson\Helper', 'putDate')
+			),
+			'sql'                     => "int(8) unsigned NOT NULL default '0'"
+		),
+		'periodEndDate' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['periodEndDate'],
+			'exclude'                 => true,
+			'search'                  => true,
+			'sorting'                 => true,
+			'flag'                    => 12,
+			'filter'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array
+			(
+				'maxlength'           => 10,
+				'tl_class'            => 'w50',
+				'rgxp'                => 'alnum'
+			),
+			'load_callback'           => array
+			(
+				array('\Samson\Helper', 'getDate')
+			),
+			'save_callback' => array
+			(
+				array('\Samson\Helper', 'putDate')
+			),
+			'sql'                     => "int(8) unsigned NOT NULL default '0'"
 		),
 		'foundingDate' => array
 		(
@@ -206,11 +288,11 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 			),
 			'load_callback'           => array
 			(
-				array('Vereinsregister', 'getDate')
+				array('\Samson\Helper', 'getDate')
 			),
 			'save_callback' => array
 			(
-				array('Vereinsregister', 'putDate')
+				array('\Samson\Helper', 'putDate')
 			),
 			'sql'                     => "int(8) unsigned NOT NULL default '0'"
 		),
@@ -231,11 +313,11 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 			),
 			'load_callback'           => array
 			(
-				array('Vereinsregister', 'getDate')
+				array('\Samson\Helper', 'getDate')
 			),
 			'save_callback' => array
 			(
-				array('Vereinsregister', 'putDate')
+				array('\Samson\Helper', 'putDate')
 			),
 			'sql'                     => "int(8) unsigned NOT NULL default '0'"
 		),
@@ -259,9 +341,81 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 				'mandatory'           => true, 
 				'chosen'              => true, 
 				'multiple'            => true, 
-				'class'               => 'clr'
+				'tl_class'            => 'clr'
 			),
 			'sql'                     => "blob NULL", 
+		),
+		'addSeparation' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['addSeparation'],
+			'exclude'                 => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('submitOnChange'=>true),
+			'sql'                     => "char(1) NOT NULL default ''"
+		),
+		'separationClubs' => array
+		(
+			'label'					=> &$GLOBALS['TL_LANG']['tl_vereinsregister']['separationClubs'],
+			'exclude' 				=> true,
+			'inputType' 			=> 'multiColumnWizard',
+			'eval' 					=> array
+			(
+				'buttonPos' 		=> 'middle',
+				'buttons'			=> array
+				(
+					//'copy' 			=> false, 
+					//'delete' 		=> true,
+					'up' 			=> false,
+					'down'			=> false
+				),
+				'columnFields' 		=> array
+				(
+					'separationClub' => array
+					(
+						'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['separationClub'],
+						'exclude'                 => true,
+						'options_callback'        => array('tl_vereinsregister', 'getVereinsliste'),
+						'onsubmit_callback'       => array(array('tl_vereinsregister', 'getVereinsliste')),
+						'inputType'               => 'select',
+						'eval'                    => array
+						(
+							'mandatory'           => true, 
+							'chosen'              => true, 
+							'multiple'            => false, 
+							'style'               => 'width:600px'
+						),
+						'sql'                     => "int(6) unsigned NOT NULL default '0'", 
+					),
+					'separationDate' => array
+					(
+						'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['separationDate'],
+						'exclude'                 => true,
+						'search'                  => true,
+						'sorting'                 => true,
+						'flag'                    => 12,
+						'filter'                  => true,
+						'inputType'               => 'text',
+						'eval'                    => array
+						(
+							'tl_class'            => 'w50 wizard',
+							'style'               => 'width:150px',
+							'datepicker'          => true,
+							'maxlength'           => 10,
+							'rgxp'                => 'alnum'
+						),
+						'load_callback'           => array
+						(
+							array('\Samson\Helper', 'getDate')
+						),
+						'save_callback' => array
+						(
+							array('\Samson\Helper', 'putDate')
+						),
+						'sql'                     => "int(8) unsigned NOT NULL default '0'"
+					),
+				)
+			),
+			'sql'                   => "blob NULL"
 		),
 		'addAfter' => array
 		(
@@ -283,10 +437,25 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 				'mandatory'           => true, 
 				'chosen'              => true, 
 				'multiple'            => true, 
-				'class'               => 'clr'
+				'tl_class'            => 'clr w50'
 			),
 			'sql'                     => "blob NULL", 
 		),
+		'afterCause' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['afterCause'],
+			'default'                 => 'text',
+			'exclude'                 => true,
+			'filter'                  => true,
+			'inputType'               => 'select',
+			'options_callback'        => array('tl_vereinsregister', 'getGrund'),
+			'eval'                    => array
+			(
+				'mandatory'           => true, 
+				'tl_class'            => 'w50'
+			),
+			'sql'                     => "char(1) NOT NULL default ''"
+		), 
 		'info' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['info'],
@@ -298,30 +467,6 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 			'eval'                    => array('rte'=>'tinyMCE'),
 			'explanation'             => 'insertTags', 
 			'sql'                     => "mediumtext NULL"
-		),
-		'city' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['city'],
-			'exclude'                 => true,
-			'search'                  => true,
-			'sorting'                 => true,
-			'flag'                    => 3,
-			'filter'                  => true,
-			'inputType'               => 'text',
-			'eval'                    => array('mandatory'=>false, 'maxlength'=>64, 'tl_class'=>'w50'),
-			'sql'                     => "varchar(64) NOT NULL default ''"
-		),
-		'land' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['land'],
-			'exclude'                 => true,
-			'search'                  => true,
-			'sorting'                 => true,
-			'flag'                    => 1,
-			'filter'                  => true,
-			'inputType'               => 'text',
-			'eval'                    => array('mandatory'=>false, 'maxlength'=>64, 'tl_class'=>'w50'),
-			'sql'                     => "varchar(64) NOT NULL default ''"
 		),
 		'addImage' => array
 		(
@@ -439,34 +584,6 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 			'eval'                    => array('rte'=>'tinyMCE'),
 			'sql'                     => "text NULL"
 		), 
-		'protected' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['protected'],
-			'exclude'                 => true,
-			'filter'                  => true,
-			'inputType'               => 'checkbox',
-			'eval'                    => array('submitOnChange'=>true),
-			'sql'                     => "char(1) NOT NULL default ''"
-		),
-		'groups' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['groups'],
-			'exclude'                 => true,
-			'inputType'               => 'checkbox',
-			'foreignKey'              => 'tl_member_group.name',
-			'eval'                    => array('mandatory'=>true, 'multiple'=>true),
-			'sql'                     => "blob NULL",
-			'relation'                => array('type'=>'hasMany', 'load'=>'lazy')
-		),
-		'guests' => array
-		(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['guests'],
-			'exclude'                 => true,
-			'filter'                  => true,
-			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class'=>'w50'),
-			'sql'                     => "char(1) NOT NULL default ''"
-		),
 		'published' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['published'],
@@ -474,25 +591,10 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 			'search'                  => false,
 			'sorting'                 => false,
 			'filter'                  => true,
+			'default'                 => 1,
 			'inputType'               => 'checkbox',
 			'eval'                    => array('tl_class' => 'w50','isBoolean' => true),
-			'sql'                     => "char(1) NOT NULL default ''"
-		),
-		'start' => array
-		(
-			'exclude'                 => true,
-			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['start'],
-			'inputType'               => 'text',
-			'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50 clr wizard'),
-			'sql'                     => "varchar(10) NOT NULL default ''"
-		),
-		'stop' => array
-		(
-			'exclude'                 => true,
-			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['stop'],
-			'inputType'               => 'text',
-			'eval'                    => array('rgxp'=>'datim', 'datepicker'=>true, 'tl_class'=>'w50 wizard'),
-			'sql'                     => "varchar(10) NOT NULL default ''"
+			'sql'                     => "char(1) NOT NULL default '1'"
 		),
 	)
 );
@@ -519,42 +621,6 @@ class tl_vereinsregister extends Backend
 	}
 
 	/**
-	 * Generiert automatisch ein Alias aus Vor- und Nachname
-	 * @param mixed
-	 * @param \DataContainer
-	 * @return string
-	 * @throws \Exception
-	 */
-	public function generateAlias($varValue, DataContainer $dc)
-	{
-		$autoAlias = false;
-
-		// Generate alias if there is none
-		if ($varValue == '')
-		{
-			$autoAlias = true;
-			$varValue = standardize(String::restoreBasicEntities($dc->activeRecord->name));
-		}
-
-		$objAlias = $this->Database->prepare("SELECT id FROM tl_vereinsregister WHERE alias=?")
-								   ->execute($varValue);
-
-		// Check whether the news alias exists
-		if ($objAlias->numRows > 1 && !$autoAlias)
-		{
-			throw new Exception(sprintf($GLOBALS['TL_LANG']['ERR']['aliasExists'], $varValue));
-		}
-
-		// Add ID to alias
-		if ($objAlias->numRows && $autoAlias)
-		{
-			$varValue .= '-' . $dc->id;
-		}
-
-		return $varValue;
-	} 
-
-	/**
 	 * Add the type of input field
 	 * @param array
 	 * @return string
@@ -563,6 +629,7 @@ class tl_vereinsregister extends Backend
 	{
 		$temp = '<div class="tl_content_left">' . $arrRow['name'];
 		if($arrRow['timerange']) $temp .= ' <span style="color:#b3b3b3;padding-left:3px">[' . $arrRow['timerange'] . ']</span>';
+		else $temp .= ' <span style="color:#b3b3b3;padding-left:3px">['.\Samson\Helper::getDate($arrRow['foundingDate']).' - '.\Samson\Helper::getDate($arrRow['resolutionDate']).']</span>';
 		$temp .= '</div>';
 		return $temp;
 	}
@@ -638,17 +705,27 @@ class tl_vereinsregister extends Backend
 	public function getVereinsliste(DataContainer $dc)
 	{
 		$array = array();
-		$objVereine = $this->Database->prepare("SELECT id, name, timerange, published, start, stop FROM tl_vereinsregister ORDER BY name ASC")->execute();
+		$objVereine = $this->Database->prepare("SELECT id, name, timerange, foundingDate, resolutionDate, published FROM tl_vereinsregister WHERE published = ? ORDER BY name ASC")
+		                              ->execute(1);
 		while($objVereine->next())
 		{
-			// Veröffentlichungsstatus ermitteln
-			if((!$objVereine->start || $objVereine->start < time()) && (!$objVereine->stop || $objVereine->stop > time()) && $objVereine->published) $published = true;
-			else $published = false;
-			
-			if($published) $array[$objVereine->id] = '<b>' . $objVereine->name . '</b> [' . $objVereine->timerange . ']';
-			else $array[$objVereine->id] = '<i>' . $objVereine->name . '</i> (' . $GLOBALS['TL_LANG']['tl_content']['nll_unpublished'] . ') [' . $objVereine->timerange . ']';
+			$array[$objVereine->id] = '<b>'.$objVereine->name.'</b>';
+			$array[$objVereine->id] .= $objVereine->timerange ? ' ['.$objVereine->timerange.']' : ' ['.\Samson\Helper::getDate($objVereine->foundingDate).' - '.\Samson\Helper::getDate($objVereine->resolutionDate).']';
 		}
 		return $array;
 	}
 	
+	public function getGrund(DataContainer $dc)
+	{
+		$array = array
+		(
+			''  => '-',
+			'1' => 'Aufspaltung/Trennung',
+			'2' => 'AuflÃ¶sung',
+			'3' => 'Fusion mit anderem/n Verein(en)',
+			'4' => 'Umbenennung',
+		);
+		return $array;
+	}
+
 }

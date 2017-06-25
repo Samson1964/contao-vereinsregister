@@ -150,11 +150,11 @@ $GLOBALS['TL_DCA']['tl_vereinsregister_chronik'] = array
 			),
 			'load_callback'           => array
 			(
-				array('Vereinsregister', 'getDate')
+				array('\Samson\Helper', 'getDate')
 			),
 			'save_callback' => array
 			(
-				array('Vereinsregister', 'putDate')
+				array('\Samson\Helper', 'putDate')
 			),
 			'sql'                     => "int(8) unsigned NOT NULL default '0'"
 		),
