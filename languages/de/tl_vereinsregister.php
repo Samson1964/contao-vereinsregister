@@ -5,8 +5,8 @@
  */
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["name_legend"] = "Vereinsname";
 
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["name"][0] = "Name";
-$GLOBALS["TL_LANG"]["tl_vereinsregister"]["name"][1] = "Geben Sie hier den aktuellen Vereinsnamen ein.";
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["name"] = array('Name', 'Geben Sie hier den aktuellen Vereinsnamen ein.');
+$GLOBALS["TL_LANG"]["tl_vereinsregister"]["association"] = array('Verband/Bund', 'Verein ist ein Verband/Bund mehrerer Vereine oder hat einen überregionalen Charakter.');
 
 $GLOBALS["TL_LANG"]["tl_vereinsregister"]["place_legend"] = "Niederlassung";
 

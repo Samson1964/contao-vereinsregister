@@ -127,7 +127,7 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 	'palettes' => array
 	(
 		'__selector__'                => array('addImage', 'addBefore', 'addSeparation', 'addAfter'), 
-		'default'                     => '{name_legend},name;{place_legend:hide},continent,land,region,city;{time_legend:hide},timerange,periodStartDate,periodEndDate,foundingDate,resolutionDate;{info_legend:hide},info;{before_legend:hide},addBefore;{separation_legend:hide},addSeparation;{after_legend:hide},addAfter;{image_legend},addImage;{link_legend:hide},url;{intern_legend:hide},intern;{publish_legend},published'
+		'default'                     => '{name_legend},name,association;{place_legend:hide},continent,land,region,city;{time_legend:hide},timerange,periodStartDate,periodEndDate,foundingDate,resolutionDate;{info_legend:hide},info;{before_legend:hide},addBefore;{separation_legend:hide},addSeparation;{after_legend:hide},addAfter;{image_legend},addImage;{link_legend:hide},url;{intern_legend:hide},intern;{publish_legend},published'
 	),
 
 	// Subpalettes
@@ -161,6 +161,18 @@ $GLOBALS['TL_DCA']['tl_vereinsregister'] = array
 			'inputType'               => 'text',
 			'eval'                    => array('mandatory'=>true, 'maxlength'=>128, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(128) NOT NULL default ''"
+		),
+		'association' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_vereinsregister']['association'],
+			'exclude'                 => true,
+			'search'                  => false,
+			'sorting'                 => false,
+			'filter'                  => true,
+			'default'                 => false,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('tl_class' => 'w50','isBoolean' => true),
+			'sql'                     => "char(1) NOT NULL default ''"
 		),
 		'continent' => array
 		(
